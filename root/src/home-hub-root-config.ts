@@ -15,10 +15,29 @@ import { registerApplication, start, LifeCycles } from "single-spa";
 //   activeWhen: (location) => location.pathname === '/hello-world',
 // });
 
+// registerApplication({
+//   name: '@home-hub/react-navbar',
+//   app: () => System.import<LifeCycles>('@home-hub/react-navbar'),
+//   activeWhen: (location) => location.pathname.includes('/'),
+// });
+
 registerApplication({
   name: '@home-hub/react-navbar',
   app: () => System.import<LifeCycles>('@home-hub/react-navbar'),
-  activeWhen: (location) => location.pathname === '/',
+  activeWhen: ['/'],
+});
+
+registerApplication({
+  name: '@home-hub/react-dashboard',
+  app: () => System.import<LifeCycles>('@home-hub/react-dashboard'),
+  activeWhen: ['/'],
+});
+
+
+registerApplication({
+  name: '@home-hub/light-control',
+  app: () => System.import<LifeCycles>('@home-hub/light-control'),
+  activeWhen: (location) => location.pathname === '/light-control',
 });
 
 // registerApplication({
